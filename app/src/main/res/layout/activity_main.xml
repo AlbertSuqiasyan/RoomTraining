@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="playerViewModel"
+            type="com.example.roomtraining.PlayerViewModel"/>
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:onClick="@{() -> playerViewModel.createAPlayer(etIq.getText().toString(),etSkill.getText().toString,etNickName.getText().toString)}"
+            android:text="@string/create"
+            app:layout_constraintEnd_toEndOf="@+id/etNickName"
+            app:layout_constraintStart_toStartOf="@+id/etNickName"
+            app:layout_constraintTop_toBottomOf="@+id/etNickName" />
+
+        <EditText
+            android:id="@+id/etSkill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/etIq"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/etIq"
+            app:layout_constraintTop_toBottomOf="@+id/etIq" />
+
+        <EditText
+            android:id="@+id/etNickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/etSkill"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/etSkill"
+            app:layout_constraintTop_toBottomOf="@+id/etSkill" />
+
+        <TextView
+            android:id="@+id/tvIq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/iq"
+            app:layout_constraintBottom_toBottomOf="@+id/etIq"
+            app:layout_constraintEnd_toStartOf="@+id/etIq"
+            app:layout_constraintTop_toTopOf="@+id/etIq"
+             />
+
+        <TextView
+            android:id="@+id/tvSkill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/skill"
+            app:layout_constraintBottom_toBottomOf="@+id/etSkill"
+            app:layout_constraintEnd_toStartOf="@+id/etSkill"
+            app:layout_constraintTop_toTopOf="@+id/etSkill" />
+
+        <TextView
+            android:id="@+id/tvNickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/nickname"
+            app:layout_constraintBottom_toBottomOf="@+id/etNickName"
+            app:layout_constraintEnd_toStartOf="@+id/etNickName"
+            app:layout_constraintTop_toTopOf="@+id/etNickName" />
+
+        <EditText
+            android:id="@+id/etIq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+            app:layout_constraintVertical_bias="0.052" />
+
+        <TextView
+            android:id="@+id/playerStats"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@{playerViewModel.name}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.056" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playerStats"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

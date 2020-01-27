@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RoomTraining</string>
+    <string name="button">Button</string>
+    <string name="id">ID</string>
+    <string name="name">Name</string>
+    <string name="iq">IQ</string>
+    <string name="skill">Skill</string>
+    <string name="nickname">NickName</string>
+    <string name="create">Create</string>
+</resources>
